@@ -3,9 +3,9 @@ machine:
     version: 2.1.0
   environment:
     TERRAFORM_VERSION: 0.6.6
-  #hosts:
-   # circlehost: 127.0.0.1
-   # webapp: 127.0.0.1
+  hosts:
+    circlehost: 127.0.0.1
+    webapp: 127.0.0.1
 
 dependencies:
   cache_directories:
@@ -27,9 +27,9 @@ test:
     - cp /etc/hosts .
     - sudo bash -c "cat hosts /tmp/hosts.txt | tee /etc/hosts"
   override:
-    - bundle exec knife solo prepare root@webapp
-    - bundle exec knife solo cook root@webapp
-    - bundle exec rake spec
+    - bundle exec knife solo prepare root@webapp --ssh-password 078010
+    - bundle exec knife solo cook root@webapp --ssh-password  078010
+    - bundle exec rake spec --ssh-password 078010
   post:
     - terraform plan -destroy
     - terraform destroy -force
