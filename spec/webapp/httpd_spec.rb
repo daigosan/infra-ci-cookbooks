@@ -6,7 +6,6 @@ end
 
 describe service('httpd'), :if => os[:family] == 'redhat' do
   it { should be_enabled }
-  it { should_be_running }
 end
 
 describe port(80) do
