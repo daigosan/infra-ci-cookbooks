@@ -26,7 +26,6 @@ test:
     - terraform apply
     - cp /etc/hosts .
     - sudo bash -c "cat hosts /tmp/hosts.txt | tee /etc/hosts"
-  post:
     - echo "Host circle" >> ~/.ssh/config
     - echo "  webapp 127.0.0.1" >> ~/.ssh/config
     - echo "  User root" >> ~/.ssh/config
@@ -36,5 +35,5 @@ test:
     - bundle exec knife solo prepare root@webapp
     - bundle exec knife solo cook root@webapp
     - bundle exec rake spec
-  #  - terraform plan -destroy
-  #  - terraform destroy -force
+    - terraform plan -destroy
+    - terraform destroy -force
