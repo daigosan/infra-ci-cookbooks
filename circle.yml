@@ -26,14 +26,10 @@ test:
     - terraform apply
     - cp /etc/hosts .
     - sudo bash -c "cat hosts /tmp/hosts.txt | tee /etc/hosts"
-    - echo "Host circle" >> ~/.ssh/config
-    - echo "  webapp 127.0.0.1" >> ~/.ssh/config
-    - echo "  User root" >> ~/.ssh/config
-    - ssh-keygen -N "" -t rsa -f ~/.ssh/id_rsa
-    - cp ~/.ssh/id_rsa.pub authorized_keys
   override:
     - bundle exec knife solo prepare root@webapp
     - bundle exec knife solo cook root@webapp
     - bundle exec rake spec
+  post:
     - terraform plan -destroy
     - terraform destroy -force
