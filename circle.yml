@@ -3,6 +3,8 @@ machine:
     version: 2.1.0
   environment:
     TERRAFORM_VERSION: 0.6.6
+  hosts:
+    webapp: 127.0.0.1
 
 dependencies:
   cache_directories:
