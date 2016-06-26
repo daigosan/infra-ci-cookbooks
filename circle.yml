@@ -27,8 +27,8 @@ test:
     - cp /etc/hosts .
     - sudo bash -c "cat hosts /tmp/hosts.txt | tee /etc/hosts"
   override:
-    - bundle exec knife solo prepare root@webapp
-    - bundle exec knife solo cook root@webapp
+    - bundle exec knife solo prepare root@188.166.196.104
+    - bundle exec knife solo cook root@188.166.196.104
     - bundle exec rake spec
   #post:
   #  - terraform plan -destroy
