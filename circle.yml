@@ -30,6 +30,6 @@ test:
     - bundle exec knife solo prepare root@webapp
     - bundle exec knife solo cook root@webapp
     - bundle exec rake spec
-  post:
-    - terraform plan -destroy
-    - terraform destroy -force
+  #post:
+  #  - terraform plan -destroy
+  #  - terraform destroy -force
