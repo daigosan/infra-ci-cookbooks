@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'knife-zero'
+gem 'knife-solo'
 gem 'serverspec'
