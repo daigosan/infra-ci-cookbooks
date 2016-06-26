@@ -32,9 +32,9 @@ test:
     - echo "  User root" >> ~/.ssh/config
     - ssh-keygen -N "" -t rsa -f ~/.ssh/id_rsa
     - cp ~/.ssh/id_rsa.pub authorized_keys
-  override:¬
-    - bundle exec knife solo prepare root@webapp¬
-    - bundle exec knife solo cook root@webapp¬
-    - bundle exec rake spec¬
+  override:
+    - bundle exec knife solo prepare root@webapp
+    - bundle exec knife solo cook root@webapp
+    - bundle exec rake spec
   #  - terraform plan -destroy
   #  - terraform destroy -force
